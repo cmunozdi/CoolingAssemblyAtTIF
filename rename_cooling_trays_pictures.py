@@ -3,7 +3,8 @@ import shutil
 
 # Function to get files sorted by name (ascending or descending order)
 def get_files_by_name(directory, start_point):
-    files = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))]
+    # Get the list of files in the input directory, excluding .gitkeep
+    files = [f for f in os.listdir(directory) if f != '.gitkeep' and os.path.isfile(os.path.join(directory, f))]
     if start_point == "outlet":  # Start from CP1 (ascending order)
         files = sorted(files)
     elif start_point == "inlet":  # Start from CP2 (descending order)
